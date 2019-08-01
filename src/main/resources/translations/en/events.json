@@ -1,0 +1,16 @@
+{
+  "events": {
+    "service_operation": {
+      "todoist": {
+        "instances": {
+          "create": {
+            "name": "Create instance",
+            "pending": "Creating instance {request.name}",
+            "success": "Instance {request.name} was created",
+            "failure": "Unable to create instance {request.name}"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "message": {
+    "todoist": {
+      "unreachable_connection": {
+        "content": "Could not establish a connection to the service",
+        "type": "error"
+      },
+      "connection": {
+        "invalid_url": {
+          "content": "Requires a valid URL",
+          "type": "error"
+        }
+      }
+    }
+  }
+}

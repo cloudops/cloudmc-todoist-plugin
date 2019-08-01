@@ -1,0 +1,32 @@
+# Eclipse / Maven generated files #
+###################################
+.settings*
+.settings/**
+.classpath
+.project
+target/
+.idea/**
+.tmp
+
+# OS / Application generated files #
+####################################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+logs/
+mysql-*.sql
+tmp
+/.externalToolBuilders/
+/src/main/webapp/node_modules/
+/src/main/webapp/target/
+/target
+*.iml
+!/src/main/resources/db/migration/**
+node_modules/**
+.idea/**

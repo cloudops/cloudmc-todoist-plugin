@@ -1,0 +1,52 @@
+{
+  "todoist": {
+    "label": {
+      "service_provider_name": "todoist"
+    },
+    "fields": {
+      "name": "Name",
+      "due": "Due date",
+      "dueString": "Due by",
+      "recurring": "Is recurring"
+    },
+    "service": {
+      "tasks": {
+        "name": "Tasks",
+        "operations": {
+          "create": {
+            "name": "Create"
+          }
+        }
+      }
+    },
+    "api_info": {
+    },
+    "connection": {
+      "success": "Connection test success",
+      "error": "Connection test failed"
+    },
+    "service_configuration": {
+      "policies": {
+      },
+      "parameters": {
+        "url": {
+          "label": "URL",
+          "description": "URL of service"
+        },
+        "token": {
+          "label": "Token",
+          "description": "API token to use for the service"
+        }
+      }
+    },
+    "permissions": {
+      "tasks": {
+        "label": "Task",
+        "create": {
+          "label": "Create",
+          "description": "Create"
+        }
+      }
+    }
+  }
+}
