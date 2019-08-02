@@ -1,11 +1,14 @@
 package com.cloudops.mc.plugin.todoist;
 
+import static com.cloudops.mc.plugin.todoist.utils.TodoistResources.PROJECTS;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,16 +27,19 @@ import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.cloudops.mc.plugin.sdk.entity.ServiceEntity;
 import com.cloudops.mc.plugin.sdk.models.Connection;
 import com.cloudops.mc.plugin.sdk.models.Credential;
 import com.cloudops.mc.plugin.sdk.models.User;
 import com.cloudops.mc.plugin.todoist.utils.TodoistAction;
+import com.cloudops.mc.plugin.todoist.utils.TodoistResources;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-class TodoistClient {
+public class TodoistClient {
+
    private static final Logger logger = LoggerFactory.getLogger(TodoistClient.class);
 
    private static final String SYNC = "/sync";
@@ -44,13 +50,21 @@ class TodoistClient {
    private static final int HTTP_REDIRECT = 307;
 
    private String apiContext;
-   private Map<String, String> parameterMap;
    private JsonObject todoistApiCommand;
+   private Map<String, String> parameterMap;
 
    private TodoistClient(String apiContext, Map<String, String> parameterMap, JsonObject todoistApiCommand) {
       this.apiContext = apiContext;
       this.parameterMap = parameterMap;
       this.todoistApiCommand = todoistApiCommand;
+   }
+
+   public static TodoistClient forResources(Connection connection) {
+      String todoistUrl = getFormattedURL(connection.getParameter(Credentials.URL) + SYNC);
+      String todoistToken = connection.getParameter(Credentials.TOKEN);
+      Map<String, String> paramsMap = new HashMap<>();
+      paramsMap.put(Credentials.TOKEN, todoistToken);
+      return new TodoistClient(todoistUrl, paramsMap, null);
    }
 
    static TodoistClient forProject(Connection connection, JsonObject project) {
@@ -64,7 +78,7 @@ class TodoistClient {
 
       Map<String, String> paramsMap = new HashMap<>();
       paramsMap.put(Credentials.TOKEN, todoistToken);
-      paramsMap.put(Credentials.RESOURCE_TYPES, "[\"" + Credentials.PROJECTS_RESOURCE + "\"]");
+      paramsMap.put(Credentials.RESOURCE_TYPES, "[\"" + PROJECTS.getResourceType() + "\"]");
       return new TodoistClient(todoistUrl, paramsMap, command);
    }
 
@@ -115,8 +129,8 @@ class TodoistClient {
          requestBuilder.addParameter(COMMANDS, command);
 
          JsonObject responseJson = executeHttpRequest(multipartBuilder, requestBuilder);
-         JsonArray projectsArray = responseJson.getAsJsonArray(Credentials.PROJECTS_RESOURCE);
-         for (JsonElement project: projectsArray) {
+         JsonArray projectsArray = responseJson.getAsJsonArray(PROJECTS.getResourceType());
+         for (JsonElement project : projectsArray) {
             String name = project.getAsJsonObject().get(Credentials.NAME).getAsString();
             if (name.equals(projectName)) {
                String id = project.getAsJsonObject().get(Credentials.ID).getAsString();
@@ -172,6 +186,24 @@ class TodoistClient {
       } catch (IOException e) {
          e.printStackTrace();
       }
+   }
+
+   public List<? extends ServiceEntity> fetch(TodoistResources resourceType) throws IOException {
+      String type = resourceType.getResourceType();
+      this.parameterMap.put(Credentials.RESOURCE_TYPES, "[\"" + type + "\"]");
+      MultipartEntityBuilder multipartBuilder = MultipartEntityBuilder.create();
+      RequestBuilder requestBuilder = RequestBuilder.get();
+      fillRequestEntities(multipartBuilder, requestBuilder, null);
+      JsonObject responseJson = executeHttpRequest(multipartBuilder, requestBuilder);
+      JsonArray resourcesArray = responseJson.getAsJsonArray(type);
+
+      switch (resourceType) {
+         case TASKS:
+            return TodoistResourceFetcher.tasks(resourcesArray);
+         case PROJECTS:
+            return TodoistResourceFetcher.projects(resourcesArray);
+      }
+      return Collections.emptyList();
    }
 
    private static String getFormattedURL(String todoistUrl) {

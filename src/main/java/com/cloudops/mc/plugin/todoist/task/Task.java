@@ -1,6 +1,5 @@
 package com.cloudops.mc.plugin.todoist.task;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
@@ -16,13 +15,27 @@ public class Task implements ServiceEntity {
    private String id;
    private String name;
    private String projectId;
-   private DueDate dueDate = new DueDate();
+   private Date dueDate;
+   private String dateString;
+   private Boolean isRecurring;
+
+   private static final String TIMEZONE = "timezone";
+   private static final String LANGUAGE = "lang";
+   private static final String DUE_DATE_FORMAT = "YYYY-MM-DD";
+   private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat(DUE_DATE_FORMAT);
 
    public JsonObject toJsonObject() {
+      JsonObject dueDateJson = new JsonObject();
+      dueDateJson.addProperty(Credentials.DATE, DATE_FORMATTER.format(dueDate));
+      dueDateJson.addProperty(Credentials.DATE_STRING, dateString);
+      dueDateJson.addProperty(Credentials.DATE_IS_RECURRING, isRecurring);
+      dueDateJson.add(TIMEZONE, null);
+      dueDateJson.addProperty(LANGUAGE, "en");
+
       JsonObject taskJson = new JsonObject();
       taskJson.addProperty(Credentials.CONTENT, this.name);
       taskJson.addProperty(Credentials.PROJECT_ID, this.projectId);
-      taskJson.add(Credentials.DUE_DATE, this.dueDate.toJsonObject());
+      taskJson.add(Credentials.DUE_DATE, dueDateJson);
       return taskJson;
    }
 
@@ -51,72 +64,28 @@ public class Task implements ServiceEntity {
       this.projectId = projectId;
    }
 
-   public DueDate getDueDate() {
+   public Date getDueDate() {
       return dueDate;
    }
 
-   public void setDueDate(DueDate dueDate) {
+   public void setDueDate(Date dueDate) {
       this.dueDate = dueDate;
    }
 
-   public DateString fromDatePhrase(String typeStr) {
-      for (DateString currString: DateString.values()) {
-         if (currString.getType().equals(typeStr)) {
-            return currString;
-         }
-      }
-      return null;
+   public String getDateString() {
+      return dateString;
    }
 
-   public Date fromDateString(String dateString) {
-      SimpleDateFormat dateFormatter = new SimpleDateFormat("YYYY-MM-DD");
-      try {
-         return dateFormatter.parse( dateString);
-      } catch (ParseException e) {
-         e.printStackTrace();
-      }
-      return null;
+   public void setDateString(String dateString) {
+      this.dateString = dateString;
    }
 
-   public class DueDate {
-      private Date date;
-      private DateString dateString;
-      private Boolean isRecurring;
+   public Boolean getRecurring() {
+      return isRecurring;
+   }
 
-      JsonObject toJsonObject() {
-         SimpleDateFormat dateFormatter = new SimpleDateFormat("YYYY-MM-DD");
-         JsonObject dueDateJson = new JsonObject();
-         dueDateJson.addProperty(Credentials.DATE, dateFormatter.format(date));
-         dueDateJson.addProperty(Credentials.DATE_STRING, this.dateString.getType());
-         dueDateJson.addProperty(Credentials.DATE_IS_RECURRING, this.isRecurring);
-         dueDateJson.add("timezone", null);
-         dueDateJson.addProperty("lang", "en");
-         return dueDateJson;
-      }
-
-      public Date getDate() {
-         return date;
-      }
-
-      public void setDate(Date date) {
-         this.date = date;
-      }
-
-      public DateString getDateString() {
-         return dateString;
-      }
-
-      public void setDateString(DateString dateString) {
-         this.dateString = dateString;
-      }
-
-      public Boolean getRecurring() {
-         return isRecurring;
-      }
-
-      public void setRecurring(Boolean recurring) {
-         isRecurring = recurring;
-      }
+   public void setRecurring(Boolean recurring) {
+      isRecurring = recurring;
    }
 
    public enum DateString {
@@ -125,15 +94,9 @@ public class Task implements ServiceEntity {
       TOMORROW("tomorrow"),
       NEXT_WEEK("next week"),
       NEXT_MONTH("next month");
-
       private String dateType;
-
       DateString(String dateType) {
          this.dateType = dateType;
-      }
-
-      private String getType() {
-         return this.dateType;
       }
    }
 
