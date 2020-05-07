@@ -1,17 +1,15 @@
 {
-  "todoist": {
+  "todo": {
     "label": {
-      "service_provider_name": "todoist"
+      "service_provider_name": "tofo"
     },
     "fields": {
       "name": "Name",
-      "due": "Due date",
-      "dueString": "Due by",
-      "recurring": "Is recurring"
+      "size": "Size"
     },
     "service": {
-      "tasks": {
-        "name": "Tasks",
+      "instances": {
+        "name": "Instances",
         "operations": {
           "create": {
             "name": "Create"
@@ -21,10 +19,6 @@
     },
     "api_info": {
     },
-    "connection": {
-      "success": "Connection test success",
-      "error": "Connection test failed"
-    },
     "service_configuration": {
       "policies": {
       },
@@ -32,16 +26,12 @@
         "url": {
           "label": "URL",
           "description": "URL of service"
-        },
-        "token": {
-          "label": "Token",
-          "description": "API token to use for the service"
         }
       }
     },
     "permissions": {
-      "tasks": {
-        "label": "Task",
+      "instances": {
+        "label": "Instance",
         "create": {
           "label": "Create",
           "description": "Create"

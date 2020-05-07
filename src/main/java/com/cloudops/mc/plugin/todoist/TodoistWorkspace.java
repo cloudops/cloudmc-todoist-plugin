@@ -10,7 +10,7 @@ public class TodoistWorkspace implements WorkspaceViewBuilder {
    @Override
    public WorkspaceView buildView(ConnectionContext connectionContext) {
       return WorkspaceView.create()
-              .tab("todoist.service.tasks.name", "tasks")
+              .tab("todoist.service.tasks.name", "instances")
               .build();
    }
 }

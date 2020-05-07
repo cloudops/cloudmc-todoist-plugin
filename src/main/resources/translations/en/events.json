@@ -1,7 +1,7 @@
 {
   "events": {
     "service_operation": {
-      "todoist": {
+      "todo": {
         "instances": {
           "create": {
             "name": "Create instance",

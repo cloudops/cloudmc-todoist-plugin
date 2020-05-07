@@ -13,7 +13,7 @@
     <dependency>
       <groupId>com.cloudops</groupId>
       <artifactId>cloudmc-service-plugin-sdk</artifactId>
-      <version>17.0.0</version>
+      <version>21.0.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
