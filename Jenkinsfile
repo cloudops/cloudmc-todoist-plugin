@@ -1,7 +1,4 @@
-library(identifier: 'utils@v2.4.0', retriever: modernSCM(
-  [$class: 'GitSCMSource',
-   remote: 'git@github.com:cloudops/cloudmc-jenkins-shared.git',
-   credentialsId: 'gh-jenkins']))
+@Library('cloudmc-jenkins-shared@master') _ 
 
 pipeline {
   agent { label 'cmc' }
@@ -12,29 +9,20 @@ pipeline {
   environment {
     GIT_URL = 'git@github.com:cloudops/cloudmc-todoist-plugin.git'
     JAR_LOCATION = 'target/cloudmc-todoist-plugin.jar'
+    REPO_NAME = 'cloudmc-todoist-plugin'
     SONAR_KEY = 'com.cloudops:cloudmc-todoist-plugin'
     SONAR_TEST_PATHS = 'src/test/groovy'
   }
   stages {
-    stage('Setup') {
-      steps {
-        deleteDir()
-        git credentialsId: 'gh-jenkins', url: env.GIT_URL, branch: env.BRANCH_NAME
-      }
-    }
-
     stage('Build, test & archive') {
       steps {
-        mvn 'deploy'
+        executeMavenBuild()
       }
     }
 
     stage('Static code analysis') {
-      when {
-        anyOf { branch 'devel'; branch 'dev-sdk-next' }
-      }
       steps{
-        kickoffStaticCodeAnalysis getSonarKey(env.SONAR_KEY), env.SONAR_TEST_PATHS
+        kickoffStaticCodeAnalysis env.REPO_NAME, env.SONAR_TEST_PATHS
       }
     }
 
@@ -48,10 +36,8 @@ pipeline {
     }
 
     stage('Quality gate') {
-      when {
-        anyOf { branch 'devel'; branch 'dev-sdk-next' }
-      }
       steps{
+  	sleep(15)
         processStaticCodeAnalysisResult()
       }
     }
