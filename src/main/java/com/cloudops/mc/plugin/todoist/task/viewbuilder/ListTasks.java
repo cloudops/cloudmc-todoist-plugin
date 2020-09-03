@@ -10,6 +10,7 @@ import com.cloudops.mc.plugin.sdk.fetcher.EntityFetcher;
 import com.cloudops.mc.plugin.sdk.ui.Icon;
 import com.cloudops.mc.plugin.sdk.ui.metadata.FieldMetadata;
 import com.cloudops.mc.plugin.sdk.ui.metadata.FieldValue;
+import com.cloudops.mc.plugin.sdk.ui.metadata.Metadata;
 import com.cloudops.mc.plugin.sdk.ui.metadata.OperationMetadata;
 import com.cloudops.mc.plugin.sdk.viewbuilders.ListViewBuilder;
 import com.cloudops.mc.plugin.todoist.task.Task;
@@ -33,7 +34,7 @@ public class ListTasks extends ListViewBuilder<Task> {
 
    @Override
    protected List<OperationMetadata> getGeneralOperations() {
-      return Collections.singletonList(new OperationMetadata("create", Icon.PLUS));
+      return Collections.singletonList(Metadata.operation("create", Icon.PLUS).build());
    }
 
    @Override
