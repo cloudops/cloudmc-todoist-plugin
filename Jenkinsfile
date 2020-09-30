@@ -10,7 +10,6 @@ pipeline {
     GIT_URL = 'git@github.com:cloudops/cloudmc-todoist-plugin.git'
     JAR_LOCATION = 'target/cloudmc-todoist-plugin.jar'
     REPO_NAME = 'cloudmc-todoist-plugin'
-    SONAR_KEY = 'com.cloudops:cloudmc-todoist-plugin'
     SONAR_TEST_PATHS = 'src/test/groovy'
   }
   stages {
@@ -22,7 +21,7 @@ pipeline {
 
     stage('Static code analysis') {
       steps{
-        kickoffStaticCodeAnalysis env.REPO_NAME, env.SONAR_TEST_PATHS
+        kickoffStaticCodeAnalysis REPO_NAME, env.SONAR_TEST_PATHS
       }
     }
 
@@ -37,11 +36,10 @@ pipeline {
 
     stage('Quality gate') {
       steps{
-  	sleep(15)
+        sleep(15)
         processStaticCodeAnalysisResult()
       }
     }
-
   }
   post{
     always {
