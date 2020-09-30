@@ -33,69 +33,6 @@
   </dependencies>
   <build>
     <finalName>${cloudmc.buildName}</finalName>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <inherited>true</inherited>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.19</version>
-        <configuration>
-          <useSystemClassLoader>false</useSystemClassLoader>
-          <argLine>${surefireArgLine} -Xmx512m -XX:MaxPermSize=128m</argLine>
-          <includes>
-            <include>**/*Spec.java</include>
-          </includes>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.gmavenplus</groupId>
-        <artifactId>gmavenplus-plugin</artifactId>
-        <version>1.5</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>addTestSources</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.7.201606060606</version>
-        <executions>
-          <execution>
-            <id>pre-unit-test</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-            <configuration>
-              <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
-              <propertyName>surefireArgLine</propertyName>
-            </configuration>
-          </execution>
-          <execution>
-            <id>post-unit-test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-            <configuration>
-              <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
-              <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
   </build>
   <distributionManagement>
     <repository>
