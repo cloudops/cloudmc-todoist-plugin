@@ -1,7 +1,7 @@
 {
-  "todo": {
+  "todoist": {
     "label": {
-      "service_provider_name": "tofo"
+      "service_provider_name": "cloudmc-todoist-plugin"
     },
     "fields": {
       "name": "Name",
