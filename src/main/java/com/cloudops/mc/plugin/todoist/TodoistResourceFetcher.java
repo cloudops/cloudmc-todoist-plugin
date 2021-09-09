@@ -51,8 +51,8 @@ public class TodoistResourceFetcher {
       for (JsonElement projectItem : projectsArray) {
          JsonObject projectObject = projectItem.getAsJsonObject();
          String id = projectObject.get(Credentials.ID).getAsString();
-         String name = projectObject.get(Credentials.CONTENT).getAsString();
-         String parentId = projectObject.get(Credentials.PARENT_ID).getAsString();
+         String name = projectObject.get(Credentials.NAME).getAsString();
+         String parentId = projectObject.get(Credentials.PARENT_ID).isJsonNull() ? null : projectObject.get(Credentials.PARENT_ID).getAsString();
          boolean shared = projectObject.get(Credentials.SHARED).getAsBoolean();
          boolean inboxProject = projectObject.get(Credentials.INDEX_PROJECT).getAsBoolean();
          boolean deleted = projectObject.get(Credentials.DELETED).getAsBoolean();
