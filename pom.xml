@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.cloudops</groupId>
     <artifactId>cloudmc-plugin-starter</artifactId>
-    <version>24.0.1</version>
+    <version>42.0.2</version>
   </parent>
   <artifactId>cloudmc-todoist-plugin</artifactId>
   <version>0.1.0-SNAPSHOT</version>
