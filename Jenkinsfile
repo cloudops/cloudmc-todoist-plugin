@@ -47,15 +47,6 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
-      when {
-        expression { isDeployable(BRANCH_NAME) }
-      }
-      steps {
-        deployPlugin env.JAR_LOCATION
-      }
-    }
-
   }
   post{
     always {
