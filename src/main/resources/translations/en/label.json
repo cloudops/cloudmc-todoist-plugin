@@ -1,13 +1,16 @@
 {
-  "todoist": {
+  "todolist": {
     "label": {
-      "service_provider_name": "todoist"
+      "service_provider_name": "Todolist"
     },
     "fields": {
       "name": "Name",
       "due": "Due date",
-      "dueString": "Due by",
-      "recurring": "Is recurring"
+      "dateString": "Due by",
+      "recurring": "Is recurring",
+      "added_at": "Added at",
+      "due_description": "YYYY-MM-DD HH:MM",
+      "dateString_description": "A more readable form of the date (e.g.: In a week)"
     },
     "service": {
       "tasks": {
@@ -15,15 +18,24 @@
         "operations": {
           "create": {
             "name": "Create"
-          }
-        }
+          },
+          "delete": {
+            "name": "Delete",
+            "confirm": "Are you sure that you want to delete task {name}?"}
+        },
+        "max_limit_reached": "The maximum allowed tasks per environment [{limit}] is reached.",
+        "invalid_due_date": "Task due date {dueDate} is invalid. Must be in the form: [YYYY-MM-DD HH:MM]",
+        "invalid_date": "Date {date} in due date is invalid. Must be in the form: [YYYY-MM-DD]",
+        "invalid_date_year": "Year {year} in due date is invalid. Must be in the form: [YYYY]",
+        "invalid_date_month": "Month {month} in due date is invalid. Must be in the form: [MM] and between 01-12",
+        "invalid_date_day": "Day {day} in due date is invalid. Must be in the form: [DD] and between 01-31",
+        "invalid_time_hour": "Hour {hour} in due date is invalid. Must be in the form: [HH] and between 00-23",
+        "invalid_time_minute": "Minute {minute} in due date is invalid. Must be in the form: [MM] and between 00-59",
+        "invalid_time": "Time {time} in due date is invalid. Must be in the form: [HH:MM]"
+
       }
     },
     "api_info": {
-    },
-    "connection": {
-      "success": "Connection test success",
-      "error": "Connection test failed"
     },
     "service_configuration": {
       "policies": {
@@ -34,19 +46,24 @@
           "description": "URL of service"
         },
         "token": {
-          "label": "Token",
-          "description": "API token to use for the service"
+          "label": "API Token",
+          "description": "API token for the Todoist API"
         }
       }
     },
     "permissions": {
-      "tasks": {
-        "label": "Task",
+      "instances": {
+        "label": "Instance",
         "create": {
           "label": "Create",
           "description": "Create"
         }
       }
+    },
+    "connection": {
+      "success": "Connection test success",
+      "error": "Connection test failed"
     }
+
   }
 }

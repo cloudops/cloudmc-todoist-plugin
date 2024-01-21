@@ -1,13 +1,20 @@
 {
   "events": {
     "service_operation": {
-      "todoist": {
-        "instances": {
+      "todolist": {
+        "tasks": {
           "create": {
-            "name": "Create instance",
-            "pending": "Creating instance {request.name}",
-            "success": "Instance {request.name} was created",
-            "failure": "Unable to create instance {request.name}"
+            "name": "Create task",
+            "pending": "Creating task {request.name}",
+            "success": "Task {request.name} was created",
+            "failure": "Unable to create task {request.name}"
+          },
+          "delete": {
+            "name": "Delete task",
+            "pending": "Deleting task {request.name}",
+            "success": "Task {request.name} was deleted",
+            "failure": "Unable to delete task {request.name}"
+
           }
         }
       }
