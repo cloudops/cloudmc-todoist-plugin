@@ -1,0 +1,39 @@
+{
+  "branding": {
+    "applicationName": "CloudMC",
+    "activeLanguages": "en,fr",
+    "defaultLanguage": "en",
+    "defaultTimezone": "America/Montreal",
+    "faviconHtmlPath": "classpath:assets/branding/favicon.html",
+    "artifactsPath": "classpath*:assets/branding/artifacts",
+    "brandingStyles": {
+      "bgColor": "#ffffff",
+      "navbarBgColor": "#000000",
+      "navbarTextColor": "#9d9d9d",
+      "navbarHoverTextColor": "#ffffff",
+      "darkPrimaryColor": "#303f9f",
+      "primaryColor": "#3f51b5",
+      "lightPrimaryColor": "#c5cae9",
+      "accentColor": "#B3E5FC",
+      "labelOnPrimaryTextColor": "#C5CAE9",
+      "valueOnPrimaryTextColor": "#FFFFFF",
+      "primaryTextColor": "#000000",
+      "secondaryTextColor": "#727272",
+      "linkColor": "#347bb7",
+      "countBadgeColor": "#ff8d00",
+      "navbarBrandBgColor": "#000000",
+      "primaryButtonColor": "#3f51b5"
+    }
+  },
+  "rootOrganization": {
+    "name": "System",
+    "entryPoint": "system"
+  },
+  "rootUser": {
+    "firstName": "Root",
+    "lastName": "Root",
+    "userName": "root",
+    "email": "<ROOT_USER_EMAIL>",
+    "password": "1q2w3e4r"
+  }
+}

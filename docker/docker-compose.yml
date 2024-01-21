@@ -1,0 +1,16 @@
+version: "3"
+services:
+  cmc_mysql:
+    build: .
+    environment:
+     - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    restart: unless-stopped
+    volumes:
+     - ~/.cloudmc/docker_mysql_data:/var/lib/mysql
+    ports:
+     - "3306:3306"
+  cmc_redis:
+    image: redis
+    restart: unless-stopped
+    ports:
+     - "6379:6379"
