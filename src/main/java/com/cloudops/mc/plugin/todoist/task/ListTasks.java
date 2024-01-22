@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist.task;
+package com.cloudops.mc.plugin.todoist.task;
 
 import java.util.ArrayList;
 import java.util.Collections;

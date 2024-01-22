@@ -1,8 +1,8 @@
-package com.cloudops.mc.plugin.todolist.task;
+package com.cloudops.mc.plugin.todoist.task;
 
 import com.cloudops.mc.plugin.sdk.annotations.Entity;
 import com.cloudops.mc.plugin.sdk.entity.ServiceEntity;
-import com.cloudops.mc.plugin.todolist.Credentials;
+import com.cloudops.mc.plugin.todoist.Credentials;
 import com.google.gson.JsonObject;
 
 @Entity(value="tasks")

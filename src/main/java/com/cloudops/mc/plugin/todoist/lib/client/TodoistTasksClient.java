@@ -1,16 +1,16 @@
-package com.cloudops.mc.plugin.todolist.lib.client;
+package com.cloudops.mc.plugin.todoist.lib.client;
 
-import static com.cloudops.mc.plugin.todolist.lib.utils.TodoistResourceType.TASKS;
+import static com.cloudops.mc.plugin.todoist.lib.utils.TodoistResourceType.TASKS;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import com.cloudops.mc.plugin.sdk.models.Connection;
-import com.cloudops.mc.plugin.todolist.Credentials;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistAction;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistResourceBuilder;
-import com.cloudops.mc.plugin.todolist.task.Task;
+import com.cloudops.mc.plugin.todoist.Credentials;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistAction;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistResourceBuilder;
+import com.cloudops.mc.plugin.todoist.task.Task;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 

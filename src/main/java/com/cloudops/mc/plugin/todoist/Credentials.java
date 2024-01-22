@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist;
+package com.cloudops.mc.plugin.todoist;
 
 /**
  * Credentials contains the mappings to Account credentials

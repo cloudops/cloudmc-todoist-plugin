@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist.task.operations.delete;
+package com.cloudops.mc.plugin.todoist.task.operations.delete;
 
 import java.util.Collections;
 import java.util.List;
@@ -10,9 +10,9 @@ import com.cloudops.mc.plugin.sdk.models.Connection;
 import com.cloudops.mc.plugin.sdk.operation.Operation;
 import com.cloudops.mc.plugin.sdk.operation.OperationError;
 import com.cloudops.mc.plugin.sdk.operation.OperationResult;
-import com.cloudops.mc.plugin.todolist.Credentials;
-import com.cloudops.mc.plugin.todolist.lib.client.TodoistTasksClient;
-import com.cloudops.mc.plugin.todolist.task.Task;
+import com.cloudops.mc.plugin.todoist.Credentials;
+import com.cloudops.mc.plugin.todoist.lib.client.TodoistTasksClient;
+import com.cloudops.mc.plugin.todoist.task.Task;
 import com.google.gson.JsonObject;
 
 @EntityOperation(value = "delete")  // <--------- Operation type with annotation

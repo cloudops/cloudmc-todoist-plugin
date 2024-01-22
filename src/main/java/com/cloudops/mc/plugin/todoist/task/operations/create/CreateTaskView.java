@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist.task.operations.create;
+package com.cloudops.mc.plugin.todoist.task.operations.create;
 
 import static java.util.Collections.singletonList;
 
@@ -14,7 +14,7 @@ import com.cloudops.mc.plugin.sdk.operation.StepResult;
 import com.cloudops.mc.plugin.sdk.ui.form.Form;
 import com.cloudops.mc.plugin.sdk.ui.form.FormElement;
 import com.cloudops.mc.plugin.sdk.viewbuilders.OperationViewBuilder;
-import com.cloudops.mc.plugin.todolist.task.Task;
+import com.cloudops.mc.plugin.todoist.task.Task;
 
 @ViewBuilder(name="create")
 public class CreateTaskView extends OperationViewBuilder<Task> {

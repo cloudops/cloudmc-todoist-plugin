@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist;
+package com.cloudops.mc.plugin.todoist;
 
 import com.cloudops.mc.plugin.sdk.annotations.ViewBuilder;
 import com.cloudops.mc.plugin.sdk.contexts.ConnectionContext;

@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist.task;
+package com.cloudops.mc.plugin.todoist.task;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -15,9 +15,9 @@ import com.cloudops.mc.plugin.sdk.fetcher.FetchOptions;
 import com.cloudops.mc.plugin.sdk.fetcher.FetcherError;
 import com.cloudops.mc.plugin.sdk.models.Connection;
 import com.cloudops.mc.plugin.sdk.models.Environment;
-import com.cloudops.mc.plugin.todolist.Credentials;
-import com.cloudops.mc.plugin.todolist.lib.client.TodoistFetchClient;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistResourceType;
+import com.cloudops.mc.plugin.todoist.Credentials;
+import com.cloudops.mc.plugin.todoist.lib.client.TodoistFetchClient;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistResourceType;
 
 @Component                                                  // <------------- (1)
 @Fetcher                                                    // <------------- (2)

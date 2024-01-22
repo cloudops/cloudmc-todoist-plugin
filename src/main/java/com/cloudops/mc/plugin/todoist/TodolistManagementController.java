@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist;
+package com.cloudops.mc.plugin.todoist;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +21,9 @@ import com.cloudops.mc.plugin.sdk.models.Credential;
 import com.cloudops.mc.plugin.sdk.models.Environment;
 import com.cloudops.mc.plugin.sdk.models.Organization;
 import com.cloudops.mc.plugin.sdk.models.User;
-import com.cloudops.mc.plugin.todolist.lib.client.TodoistProjectsClient;
-import com.cloudops.mc.plugin.todolist.lib.client.TodoistUserClient;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistAction;
+import com.cloudops.mc.plugin.todoist.lib.client.TodoistProjectsClient;
+import com.cloudops.mc.plugin.todoist.lib.client.TodoistUserClient;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistAction;
 import com.google.gson.JsonObject;
 
 /**

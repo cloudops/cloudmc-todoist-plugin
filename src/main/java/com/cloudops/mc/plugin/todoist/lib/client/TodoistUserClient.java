@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist.lib.client;
+package com.cloudops.mc.plugin.todoist.lib.client;
 
 /**
  * Update the package name with the correct package
@@ -18,8 +18,8 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import com.cloudops.mc.plugin.sdk.models.Connection;
 import com.cloudops.mc.plugin.sdk.models.Credential;
 import com.cloudops.mc.plugin.sdk.models.User;
-import com.cloudops.mc.plugin.todolist.Credentials;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistAction;
+import com.cloudops.mc.plugin.todoist.Credentials;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistAction;
 import com.google.gson.JsonObject;
 
 /**

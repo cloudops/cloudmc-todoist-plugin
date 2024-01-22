@@ -1,11 +1,11 @@
-package com.cloudops.mc.plugin.todolist.lib.client;
+package com.cloudops.mc.plugin.todoist.lib.client;
 
 /**
  * Update the package name with the correct package
  * package <packageName>.<pluginShortName>.lib.client;
  */
 
-import static com.cloudops.mc.plugin.todolist.lib.utils.TodoistResourceType.TASKS;
+import static com.cloudops.mc.plugin.todoist.lib.utils.TodoistResourceType.TASKS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,9 +30,9 @@ import org.apache.http.impl.client.HttpClients;
 
 import com.cloudops.mc.plugin.sdk.models.Connection;
 import com.cloudops.mc.plugin.sdk.models.Credential;
-import com.cloudops.mc.plugin.todolist.Credentials;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistAction;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistResourceType;
+import com.cloudops.mc.plugin.todoist.Credentials;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistAction;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistResourceType;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

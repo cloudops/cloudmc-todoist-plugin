@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist.instance
+package com.cloudops.mc.plugin.todoist.instance
 
 import spock.lang.Specification
 

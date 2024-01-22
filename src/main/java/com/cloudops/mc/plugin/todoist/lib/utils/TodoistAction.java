@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist.lib.utils;
+package com.cloudops.mc.plugin.todoist.lib.utils;
 
 /**
  * Update the package name with the correct package

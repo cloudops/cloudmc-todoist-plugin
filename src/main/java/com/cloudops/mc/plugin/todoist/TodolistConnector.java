@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist;
+package com.cloudops.mc.plugin.todoist;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,9 +17,9 @@ import com.cloudops.mc.plugin.sdk.models.Credential;
 import com.cloudops.mc.plugin.sdk.plugin.Extension;
 import com.cloudops.mc.plugin.sdk.ui.form.Form;
 import com.cloudops.mc.plugin.sdk.ui.form.FormElement;
-import com.cloudops.mc.plugin.todolist.lib.client.TodoistFetchClient;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistErrors;
-import com.cloudops.mc.plugin.todolist.lib.utils.TodoistResourceType;
+import com.cloudops.mc.plugin.todoist.lib.client.TodoistFetchClient;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistErrors;
+import com.cloudops.mc.plugin.todoist.lib.utils.TodoistResourceType;
 
 /**
  * TodolistConnector validates access to the todolist service

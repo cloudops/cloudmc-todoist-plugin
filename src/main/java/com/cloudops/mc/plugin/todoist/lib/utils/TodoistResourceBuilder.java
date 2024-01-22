@@ -1,4 +1,4 @@
-package com.cloudops.mc.plugin.todolist.lib.utils;
+package com.cloudops.mc.plugin.todoist.lib.utils;
 
 /**
  * Update the package name with the correct package
@@ -10,8 +10,8 @@ import java.util.Collections;
 import java.util.List;
 
 import com.cloudops.mc.plugin.sdk.entity.ServiceEntity;
-import com.cloudops.mc.plugin.todolist.Credentials;
-import com.cloudops.mc.plugin.todolist.task.Task;
+import com.cloudops.mc.plugin.todoist.Credentials;
+import com.cloudops.mc.plugin.todoist.task.Task;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;

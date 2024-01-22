@@ -1,11 +1,11 @@
-package com.cloudops.mc.plugin.todolist.task.operations.delete;
+package com.cloudops.mc.plugin.todoist.task.operations.delete;
 
 import com.cloudops.mc.plugin.sdk.annotations.ConfirmDialog;
 import com.cloudops.mc.plugin.sdk.annotations.ViewBuilder;
 import com.cloudops.mc.plugin.sdk.ui.form.Form;
 import com.cloudops.mc.plugin.sdk.ui.form.MessageElement;
 import com.cloudops.mc.plugin.sdk.viewbuilders.ConfirmationOperationViewBuilder;
-import com.cloudops.mc.plugin.todolist.task.Task;
+import com.cloudops.mc.plugin.todoist.task.Task;
 
 @ConfirmDialog
 @ViewBuilder(name = "delete")
