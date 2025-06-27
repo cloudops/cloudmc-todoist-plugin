@@ -38,12 +38,12 @@
     <repository>
       <id>release</id>
       <name>Releases CloudOps Repository</name>
-      <url>https://nexus.cloudops-devteam.com/repository/libs-release-local</url>
+      <url>https://us-maven.pkg.dev/cloudmc-saas-shared/libs-release-internal</url>
     </repository>
     <snapshotRepository>
       <id>snapshots</id>
       <name>Snapshots CloudOps Repository</name>
-      <url>https://nexus.cloudops-devteam.com/repository/libs-snapshot-local</url>
+      <url>https://us-maven.pkg.dev/cloudmc-saas-shared/libs-snapshot-internal</url>
     </snapshotRepository>
   </distributionManagement>
 </project>
